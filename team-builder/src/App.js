@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './App.css';
+import Form from './components/Form';
 
 const initialTeam = [
-  {firstName:"Kyle", lastName:"lasta", email:"emaila", role:"rolea",},
-  {firstName:"Johnny", lastName:"lastb", email:"emailb", role:"roleb",},
+  {firstName:"Kyle", lastName:"last", email:"lastemailyoullsee@msn.com", role:"spy",},
+  {firstName:"Johnny", lastName:"Better-Than-Bravo", email:"johnnybravotriestoohard@hotmail.com", role:"Heavy Gunner",},
   {firstName:"Brianna", lastName:"Beanie", email:"beaniedabombdotcom@gmail.com", role:"Demolition",},
   {firstName:"Vector", lastName:"Vector", email:"trapinavector@yahoo.com", role:"Other",},
 ]
 
 function App() {
   const [players, setPlayers] = useState(initialTeam);
+
+  const formSubmission = event =>{
+    event.preventDefault();
+  }
   
   
   return (
@@ -25,8 +30,14 @@ function App() {
             &nbsp; {member.role}</p>)
           }
       </section>
+          <section>
+            <h3>New Member Form:</h3>
+            <Form 
+              
+              onFormSubmit = {formSubmission}
+            />
+          </section>
       </header>
-     
     </div>
   );
 }
