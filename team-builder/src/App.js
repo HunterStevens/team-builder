@@ -1,24 +1,32 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+const initialTeam = [
+  {firstName:"Kyle", lastName:"lasta", email:"emaila", role:"rolea",},
+  {firstName:"Johnny", lastName:"lastb", email:"emailb", role:"roleb",},
+  {firstName:"Brianna", lastName:"Beanie", email:"beaniedabombdotcom@gmail.com", role:"Demolition",},
+  {firstName:"Vector", lastName:"Vector", email:"trapinavector@yahoo.com", role:"Other",},
+]
+
 function App() {
+  const [players, setPlayers] = useState(initialTeam);
+  
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Team Building</h1>
+        <section>
+          <h3>Team Member List:</h3>
+          {
+            players.map(member => <p>{member.firstName} 
+            &nbsp; {member.lastName}
+            &nbsp;{member.email}
+            &nbsp; {member.role}</p>)
+          }
+      </section>
       </header>
+     
     </div>
   );
 }
