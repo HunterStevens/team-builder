@@ -1,48 +1,67 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function Form(props){
-    const [formValues, setFormValues] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        role: ''
-    })
 
+    // const [formValues, setFormValues] = useState({
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     role: ''
+    // })
+
+    // const inputChange = event =>{
+    //     // const newPlayer = {
+    //     //   firstName: formValues.firstName,
+    //     //   lastName: formValues.lastName,
+    //     //   email: formValues.email,
+    //     //   role: formValues.role
+    //     // }
+    //     setFormValues({...formValues,
+    //          [event.target.name]:event.target.value});
+    //   };
     
-    
+    // const formSubmission = event => {
+    //     event.preventDefault();
+    //     props.memberList(formValues);
+    //     setFormValues({
+    //         firstName: '',
+    //         lastName: '',
+    //         email: '',
+    //         role: ''
+    //     })
+    // };
 
     return(
-        <form onSubmit={props.onFormSubmit}>
+        <form onSubmit={props.formSubmission}>
             <label>First Name: 
                 <input 
-                onChange={props.onInputChange}
-                value={formValues.firstName}
-                name='firstName'
+                onChange={props.inputChange}
+                value={props.formValues.firstName}
+                name='fName'
                 type='text'/>
             </label>
             <label>Last Name: 
-                <input 
-                onChange={props.onInputChange}
-                value={formValues.lastName}
-                name='lastName'
+                <input onChange={props.inputChange}  
+                value={props.formValues.lastName}  
+                name='lName'
                 type='text'/>
             </label>
             <label>Email: 
                 <input 
-                onChange={props.onInputChange}
-                value={formValues.email}
-                name='email'
+                onChange={props.inputChange}
+                value={props.formValues.email}
+                name='emailContact'
                 type='text'/>
             </label>
             <label>Role: 
                 <input 
-                onChange={props.onInputChange}
-                value={formValues.role}
-                name='role'
+                onChange={props.inputChange}
+                value={props.formValues.role}
+                name='position'
                 type='text'/>
             </label>
             <label>
-                <input type='submit'>Add New Member</input>
+                <input type='submit'/>
             </label>
         </form>
     )

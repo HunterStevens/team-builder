@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './components/Form';
+import 
 
 const initialTeam = [
   {firstName:"Kyle", lastName:"last", email:"lastemailyoullsee@msn.com", role:"spy",},
@@ -12,11 +13,31 @@ const initialTeam = [
 function App() {
   const [players, setPlayers] = useState(initialTeam);
 
-  const formSubmission = event =>{
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    role: ''
+})
+
+  const inputChange = event =>{
+    // const newPlayer = {
+    //   firstName: formValues.firstName,
+    //   lastName: formValues.lastName,
+    //   email: formValues.email,
+    //   role: formValues.role
+    // }
+    setFormValues({...formValues,
+         [event.target.name]:event.target.value});
+  };
+
+
+const formSubmission = event => {
     event.preventDefault();
-  }
-  
-  
+    setPlayers(...players, formValues);
+    console.log(players);
+};
+    
   return (
     <div className="App">
       <header className="App-header">
@@ -29,12 +50,11 @@ function App() {
             &nbsp;{member.email}
             &nbsp; {member.role}</p>)
           }
-      </section>
-          <section>
-            <h3>New Member Form:</h3>
-            <Form 
-              
-              onFormSubmit = {formSubmission}
+          <h3>New Member Form:</h3>
+            <Form
+              formSubmission = {formSubmission}
+              inputChange = {inputChange}
+              formValues = {formValues}
             />
           </section>
       </header>
