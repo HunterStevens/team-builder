@@ -33,31 +33,31 @@ function Form(props){
 
     return(
         <form onSubmit={props.formSubmission}>
-            <label>First Name: 
+            <label>First Name:  
                 <input 
                 onChange={props.inputChange}
                 value={props.formValues.firstName}
-                name='fName'
+                name='firstName'
                 type='text'/>
             </label>
-            <label>Last Name: 
+            <label>Last Name:  
                 <input onChange={props.inputChange}  
                 value={props.formValues.lastName}  
-                name='lName'
+                name='lastName'
                 type='text'/>
             </label>
-            <label>Email: 
+            <label>Email:  
                 <input 
                 onChange={props.inputChange}
                 value={props.formValues.email}
-                name='emailContact'
+                name='email'
                 type='text'/>
             </label>
             <label>Role: 
                 <input 
                 onChange={props.inputChange}
                 value={props.formValues.role}
-                name='position'
+                name='role'
                 type='text'/>
             </label>
             <label>
